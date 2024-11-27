@@ -1,7 +1,7 @@
 #!/bin/bash
 export NCCL_BLOCKING_WAIT=1
 export NCCL_ASYNC_ERROR_HANDLING=1
-export NCCL_TIMEOUT=2000
+export NCCL_TIMEOUT=1000
 export NCCL_P2P_DISABLE=0      
 export NCCL_IB_TIMEOUT=23     
 export NCCL_SOCKET_IFNAME=eth0 
@@ -20,7 +20,7 @@ swift pt \
     --sft_type full \
     --output_dir test \
     --lazy_tokenize true \
-    --dataset_test_ratio 0.001 \
+    --dataset_test_ratio 0.01 \
     --template_type AUTO \
     --dtype bf16 \
     --max_length 2048 \
