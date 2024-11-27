@@ -2,8 +2,16 @@
 export NCCL_BLOCKING_WAIT=1
 export NCCL_ASYNC_ERROR_HANDLING=1
 export NCCL_TIMEOUT=1000
-export NCCL_P2P_DISABLE=0      
-export NCCL_IB_TIMEOUT=23     
+export NCCL_P2P_DISABLE=0
+export NCCL_IB_DISABLE=0
+export NCCL_IB_TIMEOUT=23
+export NCCL_IB_HCA=mlx5
+export NCCL_IB_TC=106
+export NCCL_IB_QPS_PER_CONNECTION=4
+export NCCL_IB_GID_INDEX=3
+export NCCL_NET_GDR_READ=1
+export NCCL_CROSS_NIC=1
+export NCCL_IB_CUDA_SUPPORT=1
 export NCCL_SOCKET_IFNAME=eth0 
 
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
@@ -24,12 +32,13 @@ swift pt \
     --template_type AUTO \
     --dtype bf16 \
     --max_length 2048 \
-    --check_dataset_strategy warning \
+    --check_dataset_strategy none \
     --batch_size 8 \
+    --dataloader_num_workers 8 \
     --weight_decay 0.1 \
     --learning_rate 3e-5 \
     --gradient_accumulation_steps 4 \
-    --train_dataset_sample -1 \
+    --train_dataset_sample 500000 \
     --max_grad_norm 1.0 \
     --warmup_ratio 0.03 \
     --eval_steps 1000 \
