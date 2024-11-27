@@ -19,7 +19,7 @@ swift pt \
     --weight_decay 0.1 \
     --learning_rate 5e-5 \
     --gradient_accumulation_steps 16 \
-    --train_dataset_sample 100000 \
+    --train_dataset_sample 10000 \
     --max_grad_norm 1.0 \
     --warmup_ratio 0.03 \
     --eval_steps 2000 \
