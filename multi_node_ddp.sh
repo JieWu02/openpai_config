@@ -12,7 +12,7 @@ MASTER_ADDR=$MASTER_ADDR \
 MASTER_PORT=$MASTER_PORT \
 NPROC_PER_NODE=8 \
 swift pt \
-    --model_type qwen2_5-0_5b \
+    --model_type qwen2_5-7b \
     --dataset /our_data/code_data/data/filter_data.json \
     --num_train_epochs 1 \
     --sft_type full \
