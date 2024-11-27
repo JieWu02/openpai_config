@@ -37,13 +37,13 @@ swift pt \
     --weight_decay 0.1 \
     --learning_rate 3e-5 \
     --gradient_accumulation_steps 4 \
-    --train_dataset_sample 500000 \
+    --train_dataset_sample -1 \
     --max_grad_norm 1.0 \
     --warmup_ratio 0.03 \
     --eval_steps 1000 \
     --save_steps 1000 \
     --save_total_limit 4 \
-    --logging_steps 20 \
+    --logging_steps 10 \
     --lr_scheduler_type cosine \
     --gradient_checkpointing true \
     --ddp_backend nccl \
