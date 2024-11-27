@@ -7,7 +7,7 @@ export NCCL_IB_TIMEOUT=23
 export NCCL_SOCKET_IFNAME=eth0 
 
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
-NNODES=2 \
+NNODES=4 \
 NODE_RANK=$NODE_RANK \
 MASTER_ADDR=$MASTER_ADDR \
 MASTER_PORT=$MASTER_PORT \
@@ -25,10 +25,10 @@ swift pt \
     --dtype bf16 \
     --max_length 2048 \
     --check_dataset_strategy warning \
-    --batch_size 8 \
+    --batch_size 1 \
     --weight_decay 0.1 \
     --learning_rate 3e-5 \
-    --gradient_accumulation_steps 4 \
+    --gradient_accumulation_steps 64 \
     --train_dataset_sample 100000 \
     --max_grad_norm 1.0 \
     --warmup_ratio 0.03 \
