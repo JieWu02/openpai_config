@@ -2,9 +2,12 @@
 export NCCL_BLOCKING_WAIT=1
 export NCCL_ASYNC_ERROR_HANDLING=1
 export NCCL_TIMEOUT=1000
+export NCCL_P2P_DISABLE=0      
+export NCCL_IB_TIMEOUT=23     
+export NCCL_SOCKET_IFNAME=eth0 
 
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
-NNODES=1 \
+NNODES=2 \
 NODE_RANK=$NODE_RANK \
 MASTER_ADDR=$MASTER_ADDR \
 MASTER_PORT=$MASTER_PORT \
@@ -25,7 +28,7 @@ swift pt \
     --batch_size 8 \
     --weight_decay 0.1 \
     --learning_rate 3e-5 \
-    --gradient_accumulation_steps 16 \
+    --gradient_accumulation_steps 4 \
     --train_dataset_sample 100000 \
     --max_grad_norm 1.0 \
     --warmup_ratio 0.03 \
