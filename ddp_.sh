@@ -5,7 +5,7 @@ NPROC_PER_NODE=8 \
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7,8 \
 swift pt \
     --model_type qwen2_5-0_5b \
-    --dataset data/filter_data.json \
+    --dataset /our_data/code_data/data/filter_data.json \
     --num_train_epochs 1 \
     --sft_type full \
     --output_dir test \
