@@ -1,0 +1,27 @@
+allow-other: false
+logging:
+    type: syslog
+libfuse:
+    attribute-expiration-sec: 240
+    entry-expiration-sec: 240
+    negative-entry-expiration-sec: 120
+file_cache:
+    path: /mnt/azcache/haoling
+    timeout-sec: 120
+azstorage:
+    account-name: xinzhanginterns # TO BE FILLED
+    endpoint: https://xinzhanginterns.blob.core.windows.net   # TO BE FILLED
+    container: jiewu  # TO BE FILLED
+    mode: sas
+    sas: ?sv=2023-01-03&st=2024-09-21T09%3A04%3A23Z&se=2024-09-28T09%3A04%3A00Z&skoid=177064d6-da5f-4cf7-81f4-85009546e549&sktid=72f988bf-86f1-41af-91ab-2d7cd011db47&skt=2024-09-21T09%3A04%3A23Z&ske=2024-09-28T09%3A04%3A00Z&sks=b&skv=2023-01-03&sr=c&sp=racwdxltf&sig=ge7IWGKehgqEGnuXyeXzAInQ4lNe9HcTG06ErDD43gE%3D # TO BE FILLED
+    update-md5: false
+    validate-md5: false
+    virtual-directory: true
+    max-results-for-list: 0
+    disable-compression: false
+    telemetry: ""
+    honour-acl: false
+components:
+    - libfuse
+    - file_cache
+    - azstorage
