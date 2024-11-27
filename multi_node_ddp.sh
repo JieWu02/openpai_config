@@ -35,7 +35,7 @@ swift pt \
     --eval_steps 1000 \
     --save_steps 1000 \
     --save_total_limit 4 \
-    --logging_steps 30 \
+    --logging_steps 20 \
     --lr_scheduler_type cosine \
     --gradient_checkpointing true \
     --ddp_backend nccl \
