@@ -25,7 +25,7 @@ swift pt \
     --check_dataset_strategy warning \
     --batch_size 8 \
     --weight_decay 0.1 \
-    --learning_rate 5e-5 \
+    --learning_rate 3e-5 \
     --gradient_accumulation_steps 16 \
     --train_dataset_sample 30000 \
     --max_grad_norm 1.0 \
