@@ -23,7 +23,7 @@ NPROC_PER_NODE=8 \
 swift sft \
     --model_type qwen2_5-7b \
     --model_id_or_path /our_data/code_data/data/output/test/qwen2_5-7b/v0-20241127-184146/checkpoint-7147 \
-    --dataset /our_data/code_data/data/sft_data/instruct_dataset.json#200000,/our_data/code_data/data/sft_data/chat_dataset.json#200000  \
+    --dataset /our_data/code_data/data/sft_data/instruct_dataset.json,/our_data/code_data/data/sft_data/chat_dataset.json,/our_data/code_data/data/sft_data/SFT_data.json  \
     --num_train_epochs 1 \
     --sft_type lora \
     --output_dir sft_output \
@@ -33,15 +33,15 @@ swift sft \
     --dtype bf16 \
     --max_length 2048 \
     --check_dataset_strategy none \
-    --batch_size 1 \
+    --batch_size 8 \
     --dataloader_num_workers 8 \
-    --lora_rank 16 \
-    --lora_alpha 32 \
+    --lora_rank 32 \
+    --lora_alpha 64 \
     --lora_dropout_p 0.05 \
     --lora_target_modules ALL \
     --weight_decay 0.1 \
     --learning_rate 1e-4 \
-    --gradient_accumulation_steps 16 \
+    --gradient_accumulation_steps 8 \
     --train_dataset_sample -1 \
     --max_grad_norm 1.0 \
     --warmup_ratio 0.03 \
