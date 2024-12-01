@@ -15,7 +15,7 @@ export NCCL_CONNECT_RETRY_COUNT=5
 export NCCL_IB_CUDA_SUPPORT=1
 
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
-NNODES=2 \
+NNODES=4 \
 NODE_RANK=$NODE_RANK \
 MASTER_ADDR=$MASTER_ADDR \
 MASTER_PORT=$MASTER_PORT \
@@ -23,7 +23,7 @@ NPROC_PER_NODE=8 \
 swift sft \
     --model_type qwen2_5-7b \
     --model_id_or_path /our_data/code_data/data/output/test/qwen2_5-7b/v0-20241127-184146/checkpoint-7147 \
-    --dataset /our_data/code_data/data/sft_data/instruct_dataset.json#100000,/our_data/code_data/data/sft_data/chat_dataset.json#100000,/our_data/code_data/data/sft_data/SFT_data.json#100000  \
+    --dataset /our_data/code_data/data/sft_data/instruct_dataset.json,/our_data/code_data/data/sft_data/chat_dataset.json,/our_data/code_data/data/sft_data/SFT_data.json  \
     --num_train_epochs 1 \
     --sft_type lora \
     --output_dir sft_output \
@@ -41,12 +41,12 @@ swift sft \
     --lora_target_modules ALL \
     --weight_decay 0.1 \
     --learning_rate 1e-4 \
-    --gradient_accumulation_steps 8 \
+    --gradient_accumulation_steps 4 \
     --train_dataset_sample -1 \
     --max_grad_norm 1.0 \
     --warmup_ratio 0.03 \
-    --eval_steps 300 \
-    --save_steps 300 \
+    --eval_steps 500 \
+    --save_steps 500 \
     --save_total_limit 2 \
     --logging_steps 10 \
     --lr_scheduler_type cosine \
