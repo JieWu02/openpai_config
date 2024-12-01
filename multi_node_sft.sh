@@ -23,7 +23,7 @@ NPROC_PER_NODE=8 \
 swift sft \
     --model_type qwen2_5-7b \
     --model_id_or_path /our_data/code_data/data/output/test/qwen2_5-7b/v0-20241127-184146/checkpoint-7147 \
-    --dataset /our_data/code_data/data/sft_data/instruct_dataset.json,/our_data/code_data/data/sft_data/chat_dataset.json,/our_data/code_data/data/sft_data/SFT_data.json  \
+    --dataset /our_data/code_data/data/sft_data/instruct_dataset.json#100000,/our_data/code_data/data/sft_data/chat_dataset.json#100000,/our_data/code_data/data/sft_data/SFT_data.json#100000  \
     --num_train_epochs 1 \
     --sft_type lora \
     --output_dir sft_output \
