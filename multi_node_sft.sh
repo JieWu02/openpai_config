@@ -27,7 +27,7 @@ swift sft \
     --num_train_epochs 1 \
     --sft_type lora \
     --output_dir sft_output \
-    --lazy_tokenize false \
+    --lazy_tokenize true \
     --dataset_test_ratio 0.01 \
     --template_type AUTO \
     --dtype bf16 \
