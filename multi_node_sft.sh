@@ -48,4 +48,5 @@ swift sft \
     --lr_scheduler_type cosine \
     --gradient_checkpointing true \
     --ddp_backend nccl \
+    --deepspeed default-zero2 \
     --attn_impl flash_attn 
