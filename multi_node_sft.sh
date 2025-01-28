@@ -29,7 +29,6 @@ swift sft \
     --lazy_tokenize true \
     --torch_dtype bfloat16 \
     --max_length 2048 \
-    --check_dataset_strategy none \
     --per_device_train_batch_size 8 \
     --dataloader_num_workers 8 \
     --lora_rank 32 \
@@ -47,4 +46,4 @@ swift sft \
     --lr_scheduler_type cosine \
     --gradient_checkpointing true \
     --ddp_backend nccl \
-    --use_flash_attn true 
+    --attn_impl flash_attn 
