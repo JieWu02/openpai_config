@@ -27,7 +27,7 @@ swift sft \
     --train_type lora \
     --output_dir sft_output_from_base \
     --lazy_tokenize true \
-    --torch_dtype bf16 \
+    --torch_dtype bfloat16 \
     --max_length 2048 \
     --check_dataset_strategy none \
     --per_device_train_batch_size 8 \
