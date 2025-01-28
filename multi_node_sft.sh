@@ -21,10 +21,11 @@ MASTER_ADDR=$MASTER_ADDR \
 MASTER_PORT=$MASTER_PORT \
 NPROC_PER_NODE=8 \
 swift sft \
-    --dataset our_data/code_data/data/sft_data/instruct_dataset.json,our_data/code_data/data/sft_data/chat_dataset.json,our_data/code_data/data/sft_data/SFT_data.json  \
+    --dataset /our_data/code_data/data/sft_data/instruct_dataset.json \
+             /our_data/code_data/data/sft_data/chat_dataset.json \
+             /our_data/code_data/data/sft_data/SFT_data.json \
     --num_train_epochs 1 \
     --model Qwen/Qwen2.5-7B \
-    --trust_remote_code True \
     --train_type lora \
     --output_dir sft_output_from_base \
     --lazy_tokenize true \
