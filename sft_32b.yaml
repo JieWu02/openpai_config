@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: /root/LLaMA-Factory/Qwen2.5-Coder-14B
+model_name_or_path: /root/LLaMA-Factory/Qwen2.5-Coder-32B
 trust_remote_code: true
 
 ### method
